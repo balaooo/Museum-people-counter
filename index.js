@@ -24,23 +24,43 @@ saveBtn.addEventListener('click', ()=>{
     
 
     //建立人數＆時間戳記資料，並存到陣列當中
-    const savedData = {
+    const savedAmount = {
         time: submitTime,
         count: eachCount
     };
-    allData.push(savedData);
+    allData.push(savedAmount);
 
     //每次儲存就渲染到下方的list上
-    countList.innerHTML += `
-        <tr>
-        <td>${savedData.time}</td>
-        <td>${savedData.count}</td>
-        </tr>
-    `;
-    
+    // countList.innerHTML += `
+    //     <tr>
+    //     <td>${savedAmount.time}</td>
+    //     <td>${savedAmount.count}</td>
+    //     </tr>
+    // `;
+    renderCountList();
+
     //將儲存資料加總，並清空每次資料
     accumulateCount += eachCount;
     accumulateCountPlaceholder.innerText = accumulateCount;
     eachCount = 0;
 });
+
+function renderCountList() {
+    countList.innerHTML = `
+    <tr>
+        <td class="title">時間</td>
+        <td class="title">人數</td>
+    </tr>`;
+    allData.forEach(eachAmount =>{
+        const listItem = `
+        <tr>
+        <td>${eachAmount.time}</td>
+        <td>${eachAmount.count}</td>
+        </tr>
+        `;
+        countList.innerHTML += listItem;
+    });
+
+};
+
 
