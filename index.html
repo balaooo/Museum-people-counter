@@ -15,8 +15,8 @@
         <div class="container">
             <h1>增加參觀人數</h1>
             <h2 id="count-el">0</h2>
-            <button id="increment-btn" onclick="increaseCount()">增加一位</button>
-            <button id="save-btn" onclick="save()">儲存</button>
+            <button id="increase-btn">增加一位</button>
+            <button id="save-btn">儲存</button>
             <p id="save-el"></p>
             
         </div>
@@ -24,7 +24,7 @@
         <div class="container">
             <h4>累計資料</h4>
             <div class="count-table">
-                <h5>總參觀人數</h5>
+                <h5>總參觀人數：<span id="accumulate-count"></span></h5>
                 <div class="table-content">
                     <table id="the-table-i-want">
                     <tr>

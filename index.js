@@ -1,34 +1,34 @@
 const saveEl = document.getElementById("save-el");
 const countEl = document.getElementById("count-el");
-let eachCount = 0;
 const countList = document.getElementById("the-table-i-want");
-console.log(countList);
-console.log(countEl);
-
+const accumulateCountPlaceholder = document.getElementById("accumulate-count");
+let eachCount = 0;
 
 const allData = [];
+let accumulateCount = 0;
+const saveBtn = document.getElementById("save-btn");
+const increaseBtn = document.getElementById("increase-btn");
 
 
 
-function increaseCount() {
+increaseBtn.addEventListener('click', ()=>{
     eachCount += 1;
     countEl.innerText = eachCount;
-}
+});
 
-function save() {
+
+saveBtn.addEventListener('click', ()=>{
     let countStr = `最近一次儲存人數${eachCount}人`;
     saveEl.textContent = countStr;
     countEl.textContent = 0;
     const submitTime = moment().format('MMMM Do YYYY, h:mm:ss a');
     
 
-    //建立人數＆時間戳記資料
+    //建立人數＆時間戳記資料，並存到陣列當中
     const savedData = {
         time: submitTime,
         count: eachCount
     };
-    
-
     allData.push(savedData);
 
     //每次儲存就渲染到下方的list上
@@ -39,6 +39,9 @@ function save() {
         </tr>
     `;
     
+    //將儲存資料加總，並清空每次資料
+    accumulateCount += eachCount;
+    accumulateCountPlaceholder.innerText = accumulateCount;
     eachCount = 0;
-}
+});
 
