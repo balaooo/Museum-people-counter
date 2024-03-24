@@ -2,13 +2,12 @@ const saveEl = document.getElementById("save-el");
 const countEl = document.getElementById("count-el");
 const countList = document.getElementById("the-table-i-want");
 const accumulateCountPlaceholder = document.getElementById("accumulate-count");
-let eachCount = 0;
-
-const allData = [];
-let accumulateCount = 0;
 const saveBtn = document.getElementById("save-btn");
 const increaseBtn = document.getElementById("increase-btn");
+let eachCount = 0;
+let accumulateCount = 0;
 
+const allData = [];
 
 
 increaseBtn.addEventListener('click', ()=>{
